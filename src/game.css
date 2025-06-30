@@ -1,14 +1,16 @@
+/* ...existing code... */
+
 /* Dark background and modern font */
 body {
   background: #181a20;
   color: #e0e0e0;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
   margin: 0;
-  /* height: 100vh;
-  box-sizing: border-box; */
-  min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   overflow: hidden;
+  /* Remove min-width/min-height for better scaling */
 }
 
 /* Center the game */
@@ -17,10 +19,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 100vh; */
-  min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
   box-sizing: border-box;
+  /* Remove min-width/min-height */
 }
 
 /* Sudoku Board */
@@ -29,8 +31,12 @@ body {
 }
 
 .square {
-  width: 40px;
-  height: 40px;
+  width: 9vw;
+  height: 9vw;
+  max-width: 48px;
+  max-height: 48px;
+  min-width: 28px;
+  min-height: 28px;
   background: #3a4159;
   color: #e0e0e0;
   border: none;
@@ -56,25 +62,28 @@ body {
   display: flex;
 }
 .boardRow {
-  /* Remove default margin, use only margin-bottom for grid spacing */
   margin: 0;
 }
 .boardRow:nth-child(3),
 .boardRow:nth-child(6) {
-  margin-bottom: 12px;
+  margin-bottom: 1.5vw;
+  max-margin-bottom: 12px;
 }
 .boardRow:not(:nth-child(3)):not(:nth-child(6)):not(:last-child) {
-  margin-bottom: 2px;
+  margin-bottom: 0.3vw;
+  max-margin-bottom: 2px;
 }
 .boardRow:last-child {
   margin-bottom: 0;
 }
 .square:nth-child(3),
 .square:nth-child(6) {
-  margin-right: 12px;
+  margin-right: 1.5vw;
+  max-margin-right: 12px;
 }
 .square:not(:nth-child(3)):not(:nth-child(6)):not(:last-child) {
-  margin-right: 2px;
+  margin-right: 0.3vw;
+  max-margin-right: 2px;
 }
 .square:last-child {
   margin-right: 0;
@@ -82,8 +91,9 @@ body {
 
 /* Solve Button */
 .solveButton {
-  margin-top: 24px;
-  padding: 12px 32px;
+  margin-top: 3vw;
+  padding: 2vw 6vw;
+  max-padding: 12px 32px;
   background: linear-gradient(90deg, #377dff 0%, #7f53ff 100%);
   color: #fff;
   border: none;
@@ -103,10 +113,30 @@ body {
 
 /* Heading/Status */
 div {
-  margin-top: 18px;
+  margin-top: 2vw;
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
   color: #ffb86c;
   text-align: center;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .square {
+    width: 9vw;
+    height: 9vw;
+    max-width: 36px;
+    max-height: 36px;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 1rem;
+  }
+  .solveButton {
+    padding: 3vw 8vw;
+    font-size: 1rem;
+  }
+  div {
+    font-size: 1rem;
+  }
 }

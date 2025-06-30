@@ -2,33 +2,62 @@ import { useState } from 'react';
 import { solveSudoku } from './sudokuSolver';
 import './game.css';
 
-function Square({nums, setNums, i, status}){
-  function handleKeyDown(event){
-    if(status === "solve") {
-      if (/^[1-9]$/.test(event.key)) {
-        const newNums = nums.slice();
-        newNums[i] = event.key;
-        setNums(newNums);
-      } else if (event.key === "Backspace" || event.key === "Delete") {
-        const newNums = nums.slice();
-        newNums[i] = null;
-        setNums(newNums);
-      }
+// function Square({nums, setNums, i, status}){
+//   function handleKeyDown(event){
+//     if(status === "solve") {
+//       if (/^[1-9]$/.test(event.key)) {
+//         const newNums = nums.slice();
+//         newNums[i] = event.key;
+//         setNums(newNums);
+//       } else if (event.key === "Backspace" || event.key === "Delete") {
+//         const newNums = nums.slice();
+//         newNums[i] = null;
+//         setNums(newNums);
+//       }
+//     }
+//   }
+//   function handleKeyUp(){
+//     window.removeEventListener('keydown', handleKeyDown);
+//     window.removeEventListener('keyup', handleKeyUp);
+//   }
+//   function handleClick(){
+//     window.addEventListener('keydown', handleKeyDown);
+//     window.addEventListener('keyup', handleKeyUp);
+//   }
+//   return(
+//     <button className="square" onClick={handleClick}>
+//       {nums[i]}
+//     </button>
+//   )
+// }
+
+function Square({nums, setNums, i, status}) {
+  function handleChange(event) {
+    if (status !== "solve") return;
+    const val = event.target.value;
+    if (/^[1-9]$/.test(val)) {
+      const newNums = nums.slice();
+      newNums[i] = val;
+      setNums(newNums);
+    } else if (val === "") {
+      const newNums = nums.slice();
+      newNums[i] = null;
+      setNums(newNums);
     }
   }
-  function handleKeyUp(){
-    window.removeEventListener('keydown', handleKeyDown);
-    window.removeEventListener('keyup', handleKeyUp);
-  }
-  function handleClick(){
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-  }
-  return(
-    <button className="square" onClick={handleClick}>
-      {nums[i]}
-    </button>
-  )
+  return (
+    <input
+      className="square"
+      type="text"
+      maxLength={1}
+      value={nums[i] || ""}
+      onChange={handleChange}
+      disabled={status !== "solve"}
+      inputMode="numeric"
+      pattern="[1-9]*"
+      autoComplete="off"
+    />
+  );
 }
 
 function Board({nums, setNums, status}){
