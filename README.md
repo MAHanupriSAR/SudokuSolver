@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Sudoku Solver
+A simple web-based Sudoku solver built with React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+- Interactive 9x9 Sudoku board
+- Enter numbers using keyboard (1-9, Backspace/Delete to clear)
+- Solve button to automatically solve the puzzle
+- Input validation and error handling
+- Option to reset and try again
 
-## Available Scripts
+## Screenshot
+![screenhot](screenshot.png)
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+1. Clone or download this repository.
+   ```sh
+   git clone https://github.com/MAHanupriSAR/SudokuSolver.git
 
-### `npm test`
+2. Change directory to *SudokuSolver*
+   ```sh
+   cd SudokuSolver
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-### `npm run build`
+### Running the App
+Start the development server:
+```sh
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to use the Sudoku solver.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
+- Click on a square and enter a number (1-9) to fill it.
+- Use Backspace or Delete to clear a square.
+- Click **SOLVE** to solve the puzzle.
+- If the puzzle is invalid, you'll see an error message and can try again.
+- Click **SOLVE AGAIN** or **TRY AGAIN** to reset the board.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
+```
+public/
+  index.html         # Main HTML file
+  manifest.json      # Web app manifest
+  robots.txt         # Robots exclusion file
+src/
+  Game.js            # Main React component (UI logic)
+  sudokuSolver.js    # Sudoku solving algorithm
+  game.css           # Styles for the game
+  index.js           # App entry point
+  index.css          # Global styles
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the [MIT License](LICENSE).
