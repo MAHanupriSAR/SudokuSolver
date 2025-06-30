@@ -1,0 +1,105 @@
+/* Dark background and modern font */
+body {
+  background: #181a20;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Center the game */
+#root, .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Sudoku Board */
+.boardRow {
+  display: flex;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  background: #3a4159;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  transition: background 0.2s, box-shadow 0.2s, outline 0.2s;
+  box-shadow: 0 2px 10px 0 #0005;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.square:focus, .square:hover {
+  background: #2341ac;
+  outline-offset: 1px;
+}
+
+/* Whitespace between 3x3 boxes - perfectly symmetric */
+.boardRow {
+  display: flex;
+}
+.boardRow {
+  /* Remove default margin, use only margin-bottom for grid spacing */
+  margin: 0;
+}
+.boardRow:nth-child(3),
+.boardRow:nth-child(6) {
+  margin-bottom: 12px;
+}
+.boardRow:not(:nth-child(3)):not(:nth-child(6)):not(:last-child) {
+  margin-bottom: 2px;
+}
+.boardRow:last-child {
+  margin-bottom: 0;
+}
+.square:nth-child(3),
+.square:nth-child(6) {
+  margin-right: 12px;
+}
+.square:not(:nth-child(3)):not(:nth-child(6)):not(:last-child) {
+  margin-right: 2px;
+}
+.square:last-child {
+  margin-right: 0;
+}
+
+/* Solve Button */
+.solveButton {
+  margin-top: 24px;
+  padding: 12px 32px;
+  background: linear-gradient(90deg, #377dff 0%, #7f53ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px #0003;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.solveButton:hover, .solveButton:focus {
+  background: linear-gradient(90deg, #7f53ff 0%, #377dff 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Heading/Status */
+div {
+  margin-top: 18px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #ffb86c;
+  text-align: center;
+}
